@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Your Pookie Van!</title>
+    <style>
+        body {
+            font-family: 'Impact', sans-serif; /* Bold and horror-like font */
+            background-color: #ffe6f2;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #ff69b4;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .container {
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .scroll-down {
+            font-size: 24px;
+            color: #6a0dad;
+            margin-top: 20px;
+        }
+
+        .van-section {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #ffccf9, #d1c4e9);
+        }
+
+        .van-image {
+            width: 250px;
+            height: auto;
+            transition: all 0.5s ease;
+        }
+
+        .semi-circle {
+            width: 100px;
+            height: 50px;
+            border-top-left-radius: 100px;
+            border-top-right-radius: 100px;
+            background-color: #ff69b4;
+            margin: 20px;
+            transition: all 0.5s ease;
+        }
+
+        .dynamic-scroll {
+            text-align: center;
+        }
+
+        .dynamic-scroll .van-image {
+            width: 300px;
+        }
+
+        .dynamic-scroll .semi-circle {
+            width: 300px;
+            height: 150px;
+        }
+
+        .van-text {
+            color: #ff69b4;
+            margin: 20px 0;
+            font-size: 24px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        /* Image Section */
+        .image-section {
+            padding: 50px;
+            text-align: center;
+            background-color: #e3f2fd;
+        }
+
+        .image-section img {
+            width: 400px;
+            height: auto;
+            margin: 10px;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            background-color: #ffccf9;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .payment-section p {
+            font-size: 18px;
+            color: #6a0dad;
+        }
+
+        .payment-section button {
+            padding: 15px 30px;
+            font-size: 18px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .payment-section button:hover {
+            background-color: #ff85d5;
+        }
+
+        /* QR Code and Buttons */
+        .qr-popup {
+            display: none;
+            text-align: center;
+        }
+
+        .qr-popup img {
+            width: 200px;
+            height: auto;
+        }
+
+        .qr-popup button {
+            display: block;
+            margin: 20px auto;
+        }
+
+        /* Form Popup */
+        .form-popup {
+            display: none;
+            text-align: center;
+        }
+
+        .form-popup input,
+        .form-popup textarea {
+            width: 80%;
+            padding: 10px;
+            margin-top: 10px;
+            border: 2px solid #ff69b4;
+            border-radius: 10px;
+            font-size: 16px;
+            background-color: #fff5f8;
+        }
+
+        .form-popup button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        /* Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        .van-text.active {
+            opacity: 1;
+            animation: fadeIn 1s ease;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Gen Z fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+        body {
+            font-family: 'Indie Flower', cursive;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Van Section -->
+    <div class="van-section">
+        <div class="container">
+            <h1>Order an Omni</h1>
+            <div class="semi-circle"></div>
+            <img src="omnibg.png" class="van-image" alt="Omni Van">
+            <p class="scroll-down">Scroll down!!</p>
+        </div>
+    </div>
+
+    <!-- Dynamic Scroll Section -->
+    <div class="dynamic-scroll">
+        <div class="semi-circle"></div>
+        <img src="omnibg.png" class="van-image" alt="Omni Van Enlarged">
+        <p class="van-text">We provide pookie vans "Omni" for your pookies so they can enjoy a pookieful evening with another pookie! 💋</p>
+        <p class="van-text">Just for a small price of 69 rupees! Delivery not guaranteed as the van may be caught by the police.</p>
+        <button class="button" onclick="scrollToPayment()">🚐 Reserve a Pookie Van</button>
+    </div>
+
+    <!-- Image Section -->
+    <div class="image-section">
+        <img src="1.jpeg" alt="Image 1"> 
+        <img src="2.jpeg" alt="Image 2">
+        <img src="3.jpg" alt="Image 3">
+        <img src="4.jpeg" alt="Image 4">
+        <img src="6.jpg" alt="Image 6">
+        <img src="7.jpeg" alt="Image 7">
+        <img src="8.jpeg" alt="Image 8">
+        <!-- More images -->
+    </div>
+
+    <!-- Payment Section -->
+    <div class="payment-section">
+        <p>It's only for a joke, please don't actually make the payment! But hey, the QR code works, you can still send the money if you love the page! 😜</p>
+        <button onclick="showQrPopup()">Proceed to Payment</button>
+    </div>
+
+    <!-- QR Code Popup -->
+    <div class="qr-popup" id="qrPopup">
+        <img src="qr.jpg" alt="QR Code" height="auto" width="400">
+        <button onclick="showFormPopup()">Finish Payment</button>
+        <button onclick="hideQrPopup()">Cancel Payment</button>
+    </div>
+
+    <!-- Form Popup -->
+    <div class="form-popup" id="formPopup">
+        <h2>Enter Your Info</h2>
+        <input type="text" id="userName" placeholder="Your Name" required>
+        <input type="text" id="pookieName" placeholder="Pookie's Name" required>
+        <input type="text" id="pookieAddress" placeholder="Pookie's Address" required>
+        <input type="file" id="pookiePhoto" accept="image/*" required>
+        <button onclick="sendInfo()">Submit</button>
+        <button onclick="hideFormPopup()">Cancel</button>
+    </div>
+
+    <script>
+        // Scroll to Payment Section
+        function scrollToPayment() {
+            document.querySelector('.payment-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Show QR Popup
+        function showQrPopup() {
+            document.getElementById('qrPopup').style.display = 'block';
+        }
+
+        // Hide QR Popup
+        function hideQrPopup() {
+            document.getElementById('qrPopup').style.display = 'none';
+        }
+
+        // Show Form Popup
+        function showFormPopup() {
+            document.getElementById('qrPopup').style.display = 'none';
+            document.getElementById('formPopup').style.display = 'block';
+        }
+
+        // Hide Form Popup
+        function hideFormPopup() {
+            document.getElementById('formPopup').style.display = 'none';
+        }
+
+        // Send user info via mailto
+        function sendInfo() {
+            const name = document.getElementById('userName').value;
+            const pookieName = document.getElementById('pookieName').value;
+            const pookieAddress = document.getElementById('pookieAddress').value;
+
+            const email = "aryasatyabauddha2@gmail.com";
+            const subject = `Pookie Van Order from ${name}`;
+            const body = `User Name: ${name}\nPookie's Name: ${pookieName}\nPookie's Address: ${pookieAddress}`;
+            
+            // Open mailto link
+            window.location.href = `mailto:${email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            // Close form after sending
+            hideFormPopup();
+        }
+
+        // Animate Van Texts
+        window.onload = function() {
+            const texts = document.querySelectorAll('.van-text');
+            texts.forEach((text, index) => {
+                setTimeout(() => {
+                    text.classList.add('active');
+                }, index * 3000); // Delay for each text
+            });
+        };
+    </script>
+</body>
+</html>
